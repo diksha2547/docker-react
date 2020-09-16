@@ -12,8 +12,9 @@ pipeline {
 			}
 		}
 		stage('Build') {
+			agent any
 			steps {
-				docker build -t dg04/docker-react -f Dockerfile.dev .
+				sh 'docker build -t dg04/docker-react -f Dockerfile.dev .'
 			}
 		}
 		stage('test') {
