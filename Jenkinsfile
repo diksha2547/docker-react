@@ -13,7 +13,7 @@ pipeline {
 		}
 		stage('Build') {
 			steps {
-				echo 'building now'
+				docker build -t dg04/docker-react -f Dockerfile.dev .
 			}
 		}
 		stage('test') {
