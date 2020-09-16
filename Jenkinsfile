@@ -1,5 +1,10 @@
 pipeline {
 	agent any
+	environment {
+    		registry = "dikshagupta04"
+    		registryCredential = 'Skidv@70449'
+    		dockerImage = ''
+  	}
 	stages {
 		stage('Clean workspace') {
 			steps {
