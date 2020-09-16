@@ -6,9 +6,9 @@ pipeline {
 				deleteDir()
 			}
 		}
-		stage('Checkout SCM') {
+		stage('Clone sources') {
 			steps {
-				echo 'hey SCM'
+				git url: 'https://github.com/diksha2547/docker-react.git'
 			}
 		}
 		stage('Build') {
