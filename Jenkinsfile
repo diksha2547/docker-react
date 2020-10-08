@@ -2,7 +2,7 @@
 
 import groovy.json.JsonOutput
 
-def gitInfo
+def gitInfo='Diksha'
 
 pipeline {
 	options {
@@ -20,7 +20,6 @@ pipeline {
 			steps {
 				git url: 'https://github.com/diksha2547/docker-react.git'
 				script {
-					gitInfo = getGitInfo()
                     dockerImageTag = "${env.BRANCH_NAME}-${gitInfo.git_commit}"
 				}
 			}
