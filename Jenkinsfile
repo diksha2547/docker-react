@@ -28,7 +28,7 @@ pipeline {
 		stage('Build') {
 			steps {
 				echo "building ${BUILD_NUMBER}"
-				imageID = sh( docker build -f Dockerfile.dev . )
+				sh '"ocker build -f Dockerfile.dev ."
 				
 			}
 		}
