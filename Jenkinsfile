@@ -1,5 +1,10 @@
 pipeline {
 	agent any
+	environment {
+    		registry = "dikshagupta04"
+    		registryCredential = 'Skidv@70449'
+    		dockerImage = ''
+  	}
 	stages {
 		stage('Clean workspace') {
 			steps {
@@ -13,7 +18,9 @@ pipeline {
 		}
 		stage('Build') {
 			steps {
-				docker build -t dg04/docker-react -f Dockerfile.dev .
+				script {
+					dockerImage = docker.build registry + ":$BUILD_NUMBER"
+				}
 			}
 		}
 		stage('test') {
