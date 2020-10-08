@@ -27,10 +27,7 @@ pipeline {
 		}
 		stage('Build') {
 			steps {
-				checkout scm
-				def dockerfile = 'Dockerfile.dev'
-				echo "building ${BUILD_NUMBER}"
-				def customImage = docker.build("my-image:${env.BUILD_ID}", "-f ${dockerfile} .")
+				app = docker.build(diksha2547/docker-react)
 				
 			}
 		}
