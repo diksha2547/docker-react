@@ -27,8 +27,9 @@ pipeline {
 		}
 		stage('Build') {
 			steps {
+				def dockerfile = 'Dockerfile.dev'
 				echo "building ${BUILD_NUMBER}"
-				sh(docker build -f Dockerfile.dev .)
+				def customImage = docker.build("my-image:${env.BUILD_ID}", "-f ${dockerfile} .")
 				
 			}
 		}
