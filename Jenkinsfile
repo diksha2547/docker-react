@@ -1,3 +1,9 @@
+#!groovy
+
+import groovy.json.JsonOutput
+
+def gitInfo
+
 pipeline {
 	options {
         buildDiscarder(logRotator(numToKeepStr:'10'))
@@ -12,7 +18,11 @@ pipeline {
 		}
 		stage('Clone sources') {
 			steps {
-				git url: 'https://github.com/diksha2547/docker-react.git'
+				checkout scm
+				script {
+					gitInfo = getGitInfo()
+                    dockerImageTag = "${env.BRANCH_NAME}-${gitInfo.git_commit}"
+				}
 			}
 		}
 		stage('Build') {
