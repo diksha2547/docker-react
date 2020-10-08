@@ -1,10 +1,10 @@
 pipeline {
+	options {
+        buildDiscarder(logRotator(numToKeepStr:'10'))
+        timestamps()
+        ansiColor('xterm')
+    }
 	agent any
-	environment {
-    		registry = "dikshagupta04"
-    		registryCredential = 'Skidv@70449'
-    		dockerImage = ''
-  	}
 	stages {
 		stage('Clean workspace') {
 			steps {
@@ -18,9 +18,7 @@ pipeline {
 		}
 		stage('Build') {
 			steps {
-				script {
-					dockerImage = docker.build registry + ":$BUILD_NUMBER"
-				}
+				echo 'building'
 			}
 		}
 		stage('test') {
