@@ -28,7 +28,8 @@ pipeline {
 		stage('Build') {
 			steps {
 				echo "building ${BUILD_NUMBER}"
-				dockerImage = docker.build "${dockerRegistry}/${dockerImageRepo}:${dockerImageTag}"
+				imageID = sh( docker build -f Dockerfile.dev . )
+				
 			}
 		}
 		stage('test') {
