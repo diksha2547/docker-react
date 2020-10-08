@@ -28,7 +28,7 @@ pipeline {
 		stage('Build') {
 			steps {
 				echo "building ${BUILD_NUMBER}"
-				sh '"ocker build -f Dockerfile.dev ."
+				sh "docker build -f Dockerfile.dev ."
 				
 			}
 		}
