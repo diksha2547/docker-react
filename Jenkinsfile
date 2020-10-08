@@ -18,10 +18,14 @@ pipeline {
 		}
 		stage('Clone sources') {
 			steps {
-				checkout scm
-				script {
-					gitInfo = getGitInfo()
-                    dockerImageTag = "${env.BRANCH_NAME}-${gitInfo.git_commit}"
+				step {
+					git url: 'https://github.com/diksha2547/docker-react.git'
+				}
+				step {
+					script {
+						gitInfo = getGitInfo()
+						dockerImageTag = "${env.BRANCH_NAME}-${gitInfo.git_commit}"
+					}
 				}
 			}
 		}
