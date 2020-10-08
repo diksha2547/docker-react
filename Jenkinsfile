@@ -28,7 +28,7 @@ pipeline {
 		stage('Build') {
 			steps {
 				echo "building ${BUILD_NUMBER}"
-				 dockerImage = docker.build "${dockerRegistry}/${dockerImageRepo}:${dockerImageTag}"
+				dockerImage = docker.build "${dockerRegistry}/${dockerImageRepo}:${dockerImageTag}"
 			}
 		}
 		stage('test') {
