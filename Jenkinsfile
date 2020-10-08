@@ -21,7 +21,7 @@ pipeline {
 				git url: 'https://github.com/diksha2547/docker-react.git'
 				script {
                     dockerImageTag = "${env.BRANCH_NAME}"
-					echo "the change owner ${gitInfo.git_author}"
+					echo "the change owner ${gitInfo}"
 				}
 			}
 		}
