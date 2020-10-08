@@ -20,7 +20,7 @@ pipeline {
 			steps {
 				git url: 'https://github.com/diksha2547/docker-react.git'
 				script {
-                    dockerImageTag = "${env.BRANCH_NAME}-${gitInfo.git_commit}"
+                    dockerImageTag = "${env.BRANCH_NAME}"
 				}
 			}
 		}
