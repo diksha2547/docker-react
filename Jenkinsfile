@@ -6,7 +6,7 @@ def gitInfo='Diksha'
 
 pipeline {
 	options {
-        buildDiscarder(logRotator(numToKeepStr:'10'))
+        buildDiscarder(logRotator(numToKeepStr:'5'))
         timestamps()
     }
 	agent any
@@ -21,14 +21,14 @@ pipeline {
 				git url: 'https://github.com/diksha2547/docker-react.git'
 				script {
                     dockerImageTag = "${env.BUILD_NUMBER}"
-					echo "${env.BUILD_NUMBER}  --  ${dockerImageTag}"
-					echo "the change owner ${gitInfo} - ${dockerImageTag} ${env.BUILD_NUMBER}"
+					echo "the change owner ${gitInfo} - ${dockerImageTag}"
 				}
 			}
 		}
 		stage('Build') {
 			steps {
-				echo 'building'
+				echo "building ${BUILD_NUMBER}"
+				 dockerImage = docker.build "${dockerRegistry}/${dockerImageRepo}:${dockerImageTag}"
 			}
 		}
 		stage('test') {
