@@ -20,9 +20,9 @@ pipeline {
 			steps {
 				git url: 'https://github.com/diksha2547/docker-react.git'
 				script {
-                    dockerImageTag = "${env.BRANCH_NAME}"
-					echo "${env.BRANCH_NAME}  --  ${dockerImageTag}"
-					echo "the change owner ${gitInfo} - ${dockerImageTag} ${env.BRANCH_NAME}"
+                    dockerImageTag = "${env.BUILD_NUMBER}"
+					echo "${env.BUILD_NUMBER}  --  ${dockerImageTag}"
+					echo "the change owner ${gitInfo} - ${dockerImageTag} ${env.BUILD_NUMBER}"
 				}
 			}
 		}
