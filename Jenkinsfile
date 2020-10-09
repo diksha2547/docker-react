@@ -3,9 +3,10 @@
 import groovy.json.JsonOutput
 
 def gitInfo='Diksha'
-def app
+
 
 pipeline {
+	def app
 	options {
         buildDiscarder(logRotator(numToKeepStr:'5'))
         timestamps()
