@@ -14,7 +14,7 @@ node {
 		}
 		stage('Build') {
 			
-				echo 'build'
+				app = docker.build(diksha2547/docker-react)
 				
 			
 		}
