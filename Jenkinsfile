@@ -6,12 +6,13 @@ def gitInfo='Diksha'
 
 
 pipeline {
-	def app
 	options {
         buildDiscarder(logRotator(numToKeepStr:'5'))
         timestamps()
     }
-	agent any
+	agent {
+		dockerfile true
+	}
 	stages {
 		stage('Clean workspace') {
 			steps {
@@ -29,7 +30,7 @@ pipeline {
 		}
 		stage('Build') {
 			steps {
-				app = docker.build(diksha2547/docker-react)
+				echo 'build'
 				
 			}
 		}
