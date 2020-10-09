@@ -3,6 +3,7 @@
 import groovy.json.JsonOutput
 
 def gitInfo='Diksha'
+def app
 
 pipeline {
 	options {
