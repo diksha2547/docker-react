@@ -3,7 +3,7 @@ def gitInfo='Diksha'
 
 node {
 
-	stages {
+	
 		stage('Clean workspace') {
 			steps {
 				deleteDir()
@@ -29,5 +29,5 @@ node {
 				echo 'testing'
 			}
 		}
-	}
+	
 }
