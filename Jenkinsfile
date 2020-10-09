@@ -1,18 +1,12 @@
-#!groovy
-
-import groovy.json.JsonOutput
-
 def gitInfo='Diksha'
 
 
-pipeline {
+node {
+	
 	options {
         buildDiscarder(logRotator(numToKeepStr:'5'))
         timestamps()
     }
-	agent {
-		dockerfile true
-	}
 	stages {
 		stage('Clean workspace') {
 			steps {
