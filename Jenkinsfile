@@ -2,11 +2,7 @@ def gitInfo='Diksha'
 
 
 node {
-	
-	options {
-        buildDiscarder(logRotator(numToKeepStr:'5'))
-        timestamps()
-    }
+
 	stages {
 		stage('Clean workspace') {
 			steps {
